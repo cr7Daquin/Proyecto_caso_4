@@ -1,0 +1,145 @@
+
+    /* --- RESET --- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      background-color: #fff;
+      color: #333;
+    }
+
+    h2, h3 {
+      color: #ff6600;
+      margin-bottom: 10px;
+    }
+
+    section {
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    /* --- HEADER --- */
+    .header {
+      background: url('https://via.placeholder.com/1200x400') center center/cover no-repeat;
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .header h1 {
+      font-size: 2.5em;
+      color: #ff6600;
+    }
+
+    /* --- SERVICIOS --- */
+    .servicios {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .servicio {
+      flex: 1 1 300px;
+      background-color: #f9f9f9;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    /* --- ATENCIÓN ESPECIAL --- */
+    .atencion {
+      background-color: #111;
+      color: white;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+
+    .atencion img {
+      max-width: 100%;
+      border-radius: 8px;
+    }
+
+    .atencion-texto {
+      flex: 1 1 300px;
+      padding: 20px;
+    }
+
+    /* --- TESTIMONIOS --- */
+    .testimonios {
+      text-align: center;
+    }
+
+    .testimonios .persona {
+      margin: 20px;
+      display: inline-block;
+      max-width: 300px;
+    }
+
+    .persona img {
+      width: 80px;
+      border-radius: 50%;
+      margin-bottom: 10px;
+    }
+
+    /* --- FOOTER --- */
+    footer {
+      background-color: #222;
+      color: white;
+      padding: 40px 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    footer div {
+      flex: 1 1 200px;
+    }
+
+    footer h4 {
+      color: #ff6600;
+      margin-bottom: 10px;
+    }
+
+    footer a {
+      color: #ccc;
+      text-decoration: none;
+      display: block;
+      margin: 5px 0;
+    }
+
+    .copyright {
+      text-align: center;
+      background-color: #111;
+      color: #aaa;
+      padding: 15px;
+    }
+
+    /* --- RESPONSIVE --- */
+    @media (max-width: 768px) {
+      .atencion {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .servicios {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      footer {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  

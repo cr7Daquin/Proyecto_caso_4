@@ -1,0 +1,32 @@
+    footer {
+      background-color: #222;
+      color: white;
+      padding: 40px 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    footer div {
+      flex: 1 1 200px;
+    }
+
+    footer h4 {
+      color: #ff6600;
+      margin-bottom: 10px;
+    }
+
+    footer a {
+      color: #ccc;
+      text-decoration: none;
+      display: block;
+      margin: 5px 0;
+    }
+
+    .copyright {
+      text-align: center;
+      background-color: #111;
+      color: #aaa;
+      padding: 15px;
+    }
