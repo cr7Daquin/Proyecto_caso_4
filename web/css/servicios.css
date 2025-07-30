@@ -142,4 +142,14 @@
         text-align: center;
       }
     }
-  
+  .custom-navbar {
+  background-color: hsl(0, 0%, 17%); /* Cambia este valor por el color que quieras */
+}
+
+.custom-navbar .navbar-nav .nav-link {
+  color: rgb(255, 255, 255);
+}
+
+.custom-navbar .navbar-brand {
+  color: rgb(255, 255, 255);
+}
