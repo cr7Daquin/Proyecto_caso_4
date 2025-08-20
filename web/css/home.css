@@ -30,7 +30,7 @@
       color: #aaa;
       padding: 15px;
     }
-    .custom-navbar {
+   .custom-navbar {
   background-color: hsl(0, 0%, 17%); /* Cambia este valor por el color que quieras */
 }
 
@@ -40,4 +40,16 @@
 
 .custom-navbar .navbar-brand {
   color: rgb(255, 255, 255);
+}
+
+#carouselExampleControls {
+  max-width: 12200px;   /* ancho máximo */
+  margin: 0 auto;     /* centrar */
+  height: 635px;      /* altura fija */
+  overflow: hidden;   /* oculta lo que sobresalga */
+}
+
+#carouselExampleControls img {
+  height: 100%;
+  object-fit: cover; /* recorta la imagen sin deformarla */
 }
