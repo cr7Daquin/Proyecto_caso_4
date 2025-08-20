@@ -1,0 +1,78 @@
+    footer {
+      background-color: #222;
+      color: white;
+      padding: 40px 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    footer div {
+      flex: 1 1 200px;
+    }
+
+    footer h4 {
+      color: #ff6600;
+      margin-bottom: 10px;
+    }
+
+    footer a {
+      color: #ccc;
+      text-decoration: none;
+      display: block;
+      margin: 5px 0;
+    }
+
+    .copyright {
+      text-align: center;
+      background-color: #111;
+      color: #aaa;
+      padding: 15px;
+    }
+     
+    
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background-color: #f9f9f9;
+    }
+
+    .nosotros-section {
+      padding: 60px 20px;
+      background-color: #ffffff;
+      text-align: center;
+    }
+
+    .nosotros-section h2 {
+      font-size: 36px;
+      color: #009688;
+      margin-bottom: 20px;
+    }
+
+    .nosotros-section p {
+      max-width: 800px;
+      margin: 0 auto;
+      font-size: 18px;
+      line-height: 1.8;
+      color: #444;
+    }
+
+    .equipo-img {
+      margin-top: 30px;
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+  .custom-navbar {
+  background-color: hsl(0, 0%, 17%); /* Cambia este valor por el color que quieras */
+}
+
+.custom-navbar .navbar-nav .nav-link {
+  color: rgb(255, 255, 255);
+}
+
+.custom-navbar .navbar-brand {
+  color: rgb(255, 255, 255);
+}
