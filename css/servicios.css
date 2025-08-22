@@ -1,5 +1,4 @@
-
-    /* --- RESET --- */
+/* --- RESET --- */
     * {
       margin: 0;
       padding: 0;
@@ -126,30 +125,88 @@
     }
 
     /* --- RESPONSIVE --- */
-    @media (max-width: 768px) {
-      .atencion {
-        flex-direction: column;
-        text-align: center;
+    @media (max-width: 1100px) {
+      section {
+        padding: 30px 8px;
       }
-
-      .servicios {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      footer {
-        flex-direction: column;
-        text-align: center;
+      .header {
+        padding: 40px 8px;
       }
     }
-  .custom-navbar {
-  background-color: hsl(0, 0%, 17%); /* Cambia este valor por el color que quieras */
-}
 
-.custom-navbar .navbar-nav .nav-link {
-  color: rgb(255, 255, 255);
-}
+    @media (max-width: 900px) {
+      .servicios {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 16px;
+      }
+      .servicio {
+        max-width: 100%;
+      }
+      .atencion {
+        flex-direction: column;
+        padding: 30px 8px;
+        text-align: center;
+      }
+      .atencion-texto {
+        padding: 12px 0;
+      }
+      footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 20px 8px;
+        text-align: left;
+      }
+      footer div {
+        min-width: 100px;
+        margin-bottom: 10px;
+      }
+    }
 
-.custom-navbar .navbar-brand {
-  color: rgb(255, 255, 255);
-}
+    @media (max-width: 600px) {
+      section {
+        padding: 14px 2px;
+      }
+      .header {
+        padding: 18px 2px;
+      }
+      .header h1 {
+        font-size: 1.4em;
+      }
+      .servicio {
+        padding: 12px 4px;
+        font-size: 0.98em;
+      }
+      .atencion {
+        padding: 12px 2px;
+      }
+      .atencion-texto {
+        font-size: 0.97em;
+        padding: 6px 0;
+      }
+      .testimonios .persona {
+        margin: 10px 0;
+        max-width: 100%;
+      }
+      footer {
+        padding: 10px 2px;
+        font-size: 0.9em;
+        text-align: left;
+      }
+      footer h4 {
+        font-size: 1em;
+      }
+    }
+
+    .custom-navbar {
+      background-color: hsl(0, 0%, 17%); /* Cambia este valor por el color que quieras */
+    }
+
+    .custom-navbar .navbar-nav .nav-link {
+      color: rgb(255, 255, 255);
+    }
+
+    .custom-navbar .navbar-brand {
+      color: rgb(255, 255, 255);
+    }

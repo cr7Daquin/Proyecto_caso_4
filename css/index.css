@@ -1,37 +1,64 @@
-    footer {
-      background-color: #222;
-      color: white;
-      padding: 40px 20px;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 30px;
-    }
+/* Ajuste general para el body */
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-    footer div {
-      flex: 1 1 200px;
-    }
+/* Carrusel un poco más alto */
+#carouselExampleControls {
+  max-width: 100%;
+  margin: 0 auto;
+  height: 420px;           /* Aumenta la altura */
+  overflow: hidden;
+}
 
-    footer h4 {
-      color: #ff6600;
-      margin-bottom: 10px;
-    }
+#carouselExampleControls img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
-    footer a {
-      color: #ccc;
-      text-decoration: none;
-      display: block;
-      margin: 5px 0;
-    }
+/* Footer más pequeño */
+footer {
+  background-color: #222;
+  color: white;
+  padding: 6px 2px;        /* Padding más pequeño */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 6px;                /* Menos espacio entre columnas */
+  font-size: 0.85em;       /* Fuente más pequeña */
+}
 
-    .copyright {
-      text-align: center;
-      background-color: #222;
-      color: #aaa;
-      padding: 15px;
-    }
-   .custom-navbar {
-  background-color: hsl(0, 0%, 17%); /* Cambia este valor por el color que quieras */
+footer div {
+  flex: 1 1 80px;          /* Ancho mínimo más pequeño */
+  min-width: 60px;
+  margin-bottom: 0;
+}
+
+footer h4 {
+  color: #ff6600;
+  margin-bottom: 3px;      /* Menos margen inferior */
+  font-size: 0.95em;       /* Título más pequeño */
+}
+
+footer a {
+  color: #ccc;
+  text-decoration: none;
+  display: block;
+  margin: 1px 0;           /* Menos margen entre enlaces */
+}
+
+.copyright {
+  text-align: center;
+  background-color: #222;
+  color: #aaa;
+  padding: 15px;
+}
+
+.custom-navbar {
+  background-color: hsl(0, 0%, 17%);
 }
 
 .custom-navbar .navbar-nav .nav-link {
@@ -42,14 +69,34 @@
   color: rgb(255, 255, 255);
 }
 
-#carouselExampleControls {
-  max-width: 12200px;   /* ancho máximo */
-  margin: 0 auto;     /* centrar */
-  height: 635px;      /* altura fija */
-  overflow: hidden;   /* oculta lo que sobresalga */
+/* Media queries para pantallas pequeñas */
+@media (max-width: 900px) {
+  #carouselExampleControls {
+    height: 270px;         /* Ajusta altura en pantallas medianas */
+  }
+  footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    padding: 10px 2px;
+  }
+  footer div {
+    min-width: 80px;
+    margin-bottom: 6px;
+  }
 }
 
-#carouselExampleControls img {
-  height: 100%;
-  object-fit: cover; /* recorta la imagen sin deformarla */
+@media (max-width: 600px) {
+  #carouselExampleControls {
+    height: 170px;         /* Ajusta altura en móviles */
+  }
+  .custom-navbar {
+    padding: 0.5rem 0.5rem;
+  }
+  footer {
+    padding: 6px 1px;
+  }
+  footer h4 {
+    font-size: 0.95em;
+  }
 }
