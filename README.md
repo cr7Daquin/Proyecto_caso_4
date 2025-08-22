@@ -4,8 +4,6 @@ documentos trabajados: -todo html y todo css
 
 
 tareas pendientes:
+. añadir img
 
-. mejorar el index (cambios de estructura)
-. terminar nosotros.html(añadir img y estyles )
-. terminar productos  (todo html)
 
