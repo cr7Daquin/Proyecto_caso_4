@@ -57,7 +57,7 @@ body {
 
 .map iframe {
   width: 90%;       /* más pequeño para que quede centrado */
-  height: 400px;    /* ajusta la altura del mapa */
+  height: 500px;    /* ajusta la altura del mapa */
   border: 0;
   border-radius: 10px;
 }
@@ -68,7 +68,7 @@ footer {
   color: white;
   display: flex;
   justify-content: space-around;
-  padding: 40px 20px;
+  padding: 32.5px 20px;
   flex-wrap: wrap;
 }
 

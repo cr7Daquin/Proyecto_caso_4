@@ -75,27 +75,164 @@
       <h2>Brindamos atención especializada</h2>
       <p>Contamos con profesionales capacitados y tecnología de punta para atender a tu mascota con el mayor cuidado.</p>
     </div>
+    <button id="openBooking" class="btn" type="button" aria-haspopup="dialog" aria-controls="bookingDialog">
+      📅 Agendar una cita
+    </button>
+
+    <div id="successMsg" class="success" role="status">✅ ¡Solicitud enviada! Te contactaremos para confirmar.</div>
+  </div>
+
+  <!-- Modal / Dialog -->
+  <dialog id="bookingDialog" aria-labelledby="dialogTitle">
+    <div class="card">
+      <header class="row" style="justify-content:space-between">
+        <div>
+          <h1 id="dialogTitle">Agendar una cita</h1>
+          <p class="subtitle">Completa tus datos y selecciona fecha y hora.</p>
+        </div>
+        <button class="close-x" type="button" aria-label="Cerrar" id="closeDialog">✕</button>
+      </header>
+
+      <form id="bookingForm" method="dialog" novalidate>
+        <!-- Datos del cliente -->
+        <div>
+          <label for="nombre">Nombre completo</label>
+          <input id="nombre" name="nombre" type="text" autocomplete="name" placeholder="Ej: Camila Pérez" required />
+        </div>
+        <div>
+          <label for="email">Correo</label>
+          <input id="email" name="email" type="email" autocomplete="email" placeholder="tucorreo@ejemplo.com" required />
+        </div>
+
+        <div>
+          <label for="telefono">Teléfono</label>
+          <input id="telefono" name="telefono" type="tel" autocomplete="tel" placeholder="+56 9 1234 5678" pattern="[+0-9()\-\s]{6,}" required />
+        </div>
+        <div>
+          <label for="servicio">Servicio</label>
+          <select id="servicio" name="servicio" required>
+            <option value="" disabled selected>Selecciona…</option>
+            <option>Consulta</option>
+            <option>Mantención</option>
+            <option>Asesoría</option>
+          </select>
+        </div>
+
+        <!-- Fecha y hora -->
+        <div>
+          <label for="fecha">Fecha</label>
+          <input id="fecha" name="fecha" type="date" required />
+        </div>
+        <div>
+          <label for="hora">Hora</label>
+          <input id="hora" name="hora" type="time" min="09:00" max="18:00" step="1800" required />
+          <p class="muted" style="margin:.35rem 0 0">Horario de atención: 09:00–18:00 (cada 30 min)</p>
+        </div>
+
+        <div class="full">
+          <label for="notas">Notas (opcional)</label>
+          <textarea id="notas" name="notas" rows="3" placeholder="Cuéntanos brevemente el motivo de tu visita…"></textarea>
+        </div>
+
+        <div class="full row" style="justify-content:space-between">
+          <label class="row" style="gap:.5rem">
+            <input id="acepto" name="acepto" type="checkbox" required />
+            <span>Acepto términos y privacidad</span>
+          </label>
+          <span class="muted">* Campos obligatorios</span>
+        </div>
+      </form>
+
+      <div class="actions">
+        <button class="btn secondary" type="button" id="cancelar">Cancelar</button>
+        <button class="btn" type="submit" form="bookingForm" id="enviar">Enviar solicitud</button>
+      </div>
+    </div>
+  </dialog>
+
+  <script>
+    const openBtn = document.getElementById('openBooking');
+    const dialog = document.getElementById('bookingDialog');
+    const closeBtn = document.getElementById('closeDialog');
+    const cancelBtn = document.getElementById('cancelar');
+    const form = document.getElementById('bookingForm');
+    const success = document.getElementById('successMsg');
+    const fecha = document.getElementById('fecha');
+
+    // Establecer mínimo de fecha = hoy (en zona local)
+    const today = new Date();
+    today.setHours(0,0,0,0);
+    const tzOffset = new Date(today.getTime() - today.getTimezoneOffset()*60000)
+      .toISOString().split('T')[0];
+    fecha.min = tzOffset;
+
+    // Abrir modal (con fallback para navegadores sin <dialog>)
+    function openDialog(){
+      if (typeof dialog.showModal === 'function') {
+        dialog.showModal();
+      } else {
+        dialog.setAttribute('open','');
+        document.body.style.overflow='hidden';
+      }
+    }
+    function closeDialog(){
+      if (typeof dialog.close === 'function') {
+        dialog.close();
+      } else {
+        dialog.removeAttribute('open');
+        document.body.style.overflow='';
+      }
+    }
+
+    openBtn.addEventListener('click', openDialog);
+    closeBtn.addEventListener('click', closeDialog);
+    cancelBtn.addEventListener('click', closeDialog);
+
+    // Cerrar con clic fuera del cuadro (solo si usa <dialog>)
+    dialog.addEventListener('click', (e) => {
+      const rect = dialog.getBoundingClientRect();
+      const inDialog = (
+        e.clientX >= rect.left && e.clientX <= rect.right &&
+        e.clientY >= rect.top && e.clientY <= rect.bottom
+      );
+      if (!inDialog) closeDialog();
+    });
+
+    // Manejo de envío (frontend). Reemplaza con tu backend/fetch
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      // Validación simple HTML5
+      if (!form.reportValidity()) return;
+
+      const data = Object.fromEntries(new FormData(form).entries());
+
+      // EJEMPLO: envío con fetch a tu backend
+      // try {
+      //   const res = await fetch('/api/citas', {
+      //     method: 'POST',
+      //     headers: { 'Content-Type': 'application/json' },
+      //     body: JSON.stringify(data)
+      //   });
+      //   if (!res.ok) throw new Error('Error al enviar');
+      // } catch (err) {
+      //   alert('No se pudo enviar. Intenta nuevamente.');
+      //   return;
+      // }
+
+      // Demo: mostrar éxito y cerrar
+      closeDialog();
+      form.reset();
+      success.classList.add('show');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+
+      // Dispara un evento personalizado por si quieres enganchar lógica externa
+      document.dispatchEvent(new CustomEvent('cita:creada', { detail: data }));
+    });
+  </script>
   </section>
 
-  <!-- TESTIMONIOS -->
-  <section class="testimonios">
-    <h2>Testimonios</h2>
-    <div class="persona">
-      <img src="https://via.placeholder.com/80" alt="Usuario 1">
-      <p>"Excelente atención y cuidado. Recomiendo 100%."</p>
-      <strong>Juan Pérez</strong>
-    </div>
-    <div class="persona">
-      <img src="https://via.placeholder.com/80" alt="Usuario 2">
-      <p>"Muy profesionales. Mi mascota se recuperó rápido."</p>
-      <strong>Marisol Vega</strong>
-    </div>
-    <div class="persona">
-      <img src="https://via.placeholder.com/80" alt="Usuario 3">
-      <p>"Instalaciones limpias y modernas. Muy buen trato."</p>
-      <strong>Carlos Duarte</strong>
-    </div>
-  </section>
+
   <!-- FOOTER -->
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
 <footer>
